@@ -1,9 +1,9 @@
-## BOUNDINGBOXES
-1.INSTALL FOLLOWING PACKAGES
+## crop.py
+```
+import os
+import csv
+from PIL import Image, ImageDraw
 
-CSV,PIL
-
-2.CODE
 
 csv_file = "/home/ankitha-mukka/7622202030987_bounding_box.csv"
 image_dir = "/home/ankitha-mukka/7622202030987"
@@ -43,4 +43,67 @@ with open(csv_file, 'r') as file:
         image_path = os.path.join(image_dir, image_name)
         output_path = os.path.join(output_dir, image_name)
         image = Image.open(image_path)
+        boxes = [{'left': row['xmin'], 'top': 
+```
+
+## histogram.py
+
+```
+import numpy as np
+import cv2 as cv
+from matplotlib import pyplot as plt
+ 
+img = cv.imread('/home/ankitha-mukka/Desktop/experiments/r.jpg')
+cv.imwrite("/home/ankitha-mukka/Desktop/experiments/anu.jpg",img)
+assert img is not None, "file could not be read, check with os.path.exists()"
+color = ('b','g','r')
+for i,col in enumerate(color):
+ histr = cv.calcHist([img],[i],None,[256],[0,256])
+ plt.plot(histr,color = col)
+ plt.xlim([0,256])
+plt.show()
+```
+
+## iterate.py
+```
+def print_sum_of_previous_and_current():
+    previous_number = 0
+    for i in range(1, 11):
+        current_number = i
+        sum_of_previous_and_current = previous_number + current_number
+        print(f"Current Number: {current_number}, Previous Number: {previous_number}, Sum: {sum_of_previous_and_current}")
+        previous_number = current_number
+
+print_sum_of_previous_and_current()
+```
+
+## videocp.py
+```
+# import the opencv library 
+import cv2 
+  
+  
+# define a video capture object 
+vid = cv2.VideoCapture(0) 
+  
+while(True): 
+      
+    # Capture the video frame 
+    # by frame 
+    ret, frame = vid.read() 
+  
+    # Display the resulting frame 
+    cv2.imshow('frame', frame)
+      
+    # the 'q' button is set as the 
+    # quitting button you may use any 
+    # desired button of your choice 
+    if cv2.waitKey(1) & 0xFF == ord('q'): 
+        break
+  
+# After the loop release the cap object 
+vid.release() 
+# Destroy all the windows 
+cv2.destroyAllWindows()
+```
 
