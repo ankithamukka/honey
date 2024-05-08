@@ -96,5 +96,7 @@ for i,col in enumerate(color):
  
 plt.show()
 
+##input:
+
 
 
