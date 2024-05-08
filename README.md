@@ -153,14 +153,23 @@ def draw_boxes(image, boxes):
 crop_image(image, boxes): Crops regions of interest from the image based on bounding box coordinates and returns a list of cropped images
 
 def crop_image(image, boxes):
+
     cropped_images = []
+    
     for box in boxes:
+    
         left = int(box['left'])
+        
         top = int(box['top'])
+        
         right = int(box['right'])
+        
         bottom = int(box['bottom'])
+        
         cropped_img = image.crop((left, top, right, bottom))
+        
         cropped_images.append(cropped_img)
+        
     return cropped_images
     
 5.Processing CSV File:
