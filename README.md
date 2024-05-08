@@ -104,6 +104,74 @@ plt.show()
 
 ![histogram](https://github.com/ankithamukka/honey/assets/169052286/9d2a01c1-fa50-4c5f-b78b-2d592ddbb92d)
 
+## bounding boxes
 
+A bounding box is the smallest rectangle with vertical and horizontal sides that completely surrounds an object. All portions of the object lie within the bounding box. The bounding box of a selected object is indicated by selection handles.
+
+1.import libraries:
+
+    os: This module provides functions for interacting with the operating system, such as creating directories.
+    
+    csv: This module facilitates reading and writing CSV files.
+    
+    PIL.Image and PIL.ImageDraw: These classes from the Python Imaging Library (PIL) allow for image manipulation, including drawing on images.
+
+2.reading file paths:
+
+    csv_file: Path to the CSV file containing bounding box information.
+    
+    image_dir: Directory containing the images.
+    
+3.Create Output Directory:
+    
+    output_dir: Directory where images with bounding boxes will be saved.
+    
+os.makedirs(output_dir, exist_ok=True)
+
+4.defining functions:
+
+draw_boxes(image, boxes): Draws red rectangles around the bounding boxes on the input image.
+
+def draw_boxes(image, boxes):
+    draw = ImageDraw.Draw(image)
+    for box in boxes:
+        left = int(box['left'])
+        top = int(box['top'])
+        right = int(box['right'])
+        bottom = int(box['bottom'])
+        draw.rectangle([left, top, right, bottom], outline="red")
+    return image
+
+crop_image(image, boxes): Crops regions of interest from the image based on bounding box coordinates and returns a list of cropped images
+
+def crop_image(image, boxes):
+    cropped_images = []
+    for box in boxes:
+        left = int(box['left'])
+        top = int(box['top'])
+        right = int(box['right'])
+        bottom = int(box['bottom'])
+        cropped_img = image.crop((left, top, right, bottom))
+        cropped_images.append(cropped_img)
+    return cropped_images
+    
+5.Processing CSV File:
+
+with open(csv_file, 'r') as file:
+
+6.Iterates over each row in the CSV file. For each row:
+
+    csv_reader = csv.DictReader(file)
+    for row in csv_reader:
+        image_name = row['filename']
+        image_path = os.path.join(image_dir, image_name)
+        output_path = os.path.join(output_dir, image_name)
+        image = Image.open(image_path)
+        boxes = [{'left': row['xmin'], 'top': row['ymin'], 'right': row['xmax'], 'bottom': row['ymax']}]
+        cropped_images = crop_image(image, boxes)
+        for i, cropped_img in enumerate(cropped_images):
+            cropped_img.save(os.path.join(output_dir, f"{i}_{image_name}"))  
+        full_image_with_boxes = draw_boxes(image, boxes)
+        full_image_with_boxes.save(os.path.join(output_dir, f"full_{image_name}"))
 
 
