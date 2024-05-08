@@ -96,7 +96,9 @@ for i,col in enumerate(color):
  
 plt.show()
 
-##input:
+## input:
+
+![r](https://github.com/ankithamukka/honey/assets/169052286/d6992a29-87f4-46c0-9e6b-dc93fd27b976)
 
 
 
