@@ -133,13 +133,21 @@ os.makedirs(output_dir, exist_ok=True)
 draw_boxes(image, boxes): Draws red rectangles around the bounding boxes on the input image.
 
 def draw_boxes(image, boxes):
+
     draw = ImageDraw.Draw(image)
+    
     for box in boxes:
+    
         left = int(box['left'])
+        
         top = int(box['top'])
+        
         right = int(box['right'])
+        
         bottom = int(box['bottom'])
+        
         draw.rectangle([left, top, right, bottom], outline="red")
+        
     return image
 
 crop_image(image, boxes): Crops regions of interest from the image based on bounding box coordinates and returns a list of cropped images
