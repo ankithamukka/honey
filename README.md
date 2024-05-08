@@ -100,7 +100,9 @@ plt.show()
 
 ![r](https://github.com/ankithamukka/honey/assets/169052286/d6992a29-87f4-46c0-9e6b-dc93fd27b976)
 
-## output;
+## output:
+
+![histogram](https://github.com/ankithamukka/honey/assets/169052286/9d2a01c1-fa50-4c5f-b78b-2d592ddbb92d)
 
 
 
