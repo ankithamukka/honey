@@ -203,6 +203,52 @@ with open(csv_file, 'r') as file:
 
 ![0_7622202030987_f306535d741c9148dc458acbbc887243_L_490](https://github.com/ankithamukka/honey/assets/169052286/b85de1c8-da9d-4fa4-902d-5b62b2fe9ea1)
 
+
+## webcam
+
+A webcam is a digital camera that captures video and audio data and transmits it in real-time over the internet. It is commonly used for video conferencing, live streaming, online meetings, and recording videos. Webcams are typically connected to computers or laptops via universal serial bus (USB) ports and are often built into devices such as laptops or external monitors.
+
+## uses of webcam:
+
+1.Video Conferencing
+
+2.Online Education
+
+3.Live Streaming
+
+import the opencv library 
+import cv2 
+
+2.define a video capture object (vid) by calling cv2 videocapture(0)
+  
+ 
+vid = cv2.VideoCapture(0) 
+ 3. Start an infinite loop (While(True)) to continuously captures frames from vedio 
+ 
+while(True): 
+
+4. the function vidread() capture a frame from the vedio and returns two values : ret, a boolean indicating wheather a frame was successfully  capyured ,and frame ,the captured frame.
+   
+       ret, frame = vid.read() 
+ 5. cv2.imshow () displays the captured frame in a window named 'frame'.
+          
+       cv2.imshow('frame', frame) 
+6. the loop waits for a key press with cv2.waitKey(1). if the pressed key is q  the loop breaks and the program ends
+       
+      if cv2.waitKey(1) & 0xFF == ord('q'):
+
+7.vid.release{}releases the video capture object
+
+vid.release{}
+
+cv2.destroy all windows
+  
+
+  
+   
+      
+   
+
    
 
    
