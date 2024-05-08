@@ -7,7 +7,6 @@ A histogram is the graphical representation of data where data is grouped into c
 
 The number ranges depend upon the data that is being used.
 
-
 import numpy as np
 import cv2 as cv
 from matplotlib import pyplot as plt
@@ -21,10 +20,3 @@ for i,col in enumerate(color):
  plt.plot(histr,color = col)
  plt.xlim([0,256])
 plt.show()
-
-
-
-
-
- 
-
