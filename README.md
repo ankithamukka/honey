@@ -239,9 +239,10 @@ size = (frame_width, frame_height)
 Here, a VideoWriter object named result is created. It specifies the output file name ('M.avi'), the FourCC codec (MJPG), the frames per second (10), and the size of the frames.
 
 6.while(True):
+
     ret, frame = video.read().
     
-    This loop continuously reads frames from the webcam capture until the loop is manually broken. Each frame is stored in the frame variable.
+ This loop continuously reads frames from the webcam capture until the loop is manually broken. Each frame is stored in the frame variable.
        
  7. if ret == True:
   
@@ -250,9 +251,10 @@ Here, a VideoWriter object named result is created. It specifies the output file
     cv2.imshow('Frame', frame)
     
     if cv2.waitKey(1) & 0xFF == ord('s'):
+    
     break
 
-    Within the loop, each frame is written to the output file using the write() method of the VideoWriter object. The frame is also displayed in a window named 'Frame' using imshow(). If the 's' key is pressed, the loop breaks, stopping the recording process
+  Within the loop, each frame is written to the output file using the write() method of the VideoWriter object. The frame is also displayed in a window named 'Frame' using imshow(). If the 's' key is pressed, the loop breaks, stopping the recording process
 
 
 8.vid.release{}releases the video capture object
