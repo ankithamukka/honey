@@ -221,29 +221,33 @@ A webcam is a digital camera that captures video and audio data and transmits it
 import cv2 
 
 2.define a video capture object (vid) by calling cv2 videocapture(0)
-  
+
+```  
  vid = cv2.VideoCapture(0) 
- 
+ ```
  3. if (video.isOpened() == False):
 
     print("Error reading video file")
-    
+ ```   
 4.frame_width = int(video.get(3))
 
 frame_height = int(video.get(4))
 
 size = (frame_width, frame_height)
+```
 
+```
 5. result = cv2.VideoWriter('an.avi', cv2.VideoWriter_fourcc(*'MJPG'), 10, size
+```
 
 Here, a VideoWriter object named result is created. It specifies the output file name ('M.avi'), the FourCC codec (MJPG), the frames per second (10), and the size of the frames.
-
+```
 6.while(True):
 
     ret, frame = video.read().
-    
+    ```
  This loop continuously reads frames from the webcam capture until the loop is manually broken. Each frame is stored in the frame variable.
-       
+  ```     
  7. if ret == True:
   
     result.write(frame)
@@ -253,15 +257,16 @@ Here, a VideoWriter object named result is created. It specifies the output file
     if cv2.waitKey(1) & 0xFF == ord('s'):
     
     break
-
+```
   Within the loop, each frame is written to the output file using the write() method of the VideoWriter object. The frame is also displayed in a window named 'Frame' using imshow(). If the 's' key is pressed, the loop breaks, stopping the recording process
-
-
+  
+```
 8.vid.release{}releases the video capture object
 
 vid.release{}
 
 cv2.destroy all windows
+```
 
 9.print("The video was successfully saved")
 
