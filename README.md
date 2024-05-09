@@ -216,32 +216,53 @@ A webcam is a digital camera that captures video and audio data and transmits it
 
 3.Live Streaming
 
-import the opencv library 
+1.import the opencv library 
+
 import cv2 
 
 2.define a video capture object (vid) by calling cv2 videocapture(0)
   
+ vid = cv2.VideoCapture(0) 
  
-vid = cv2.VideoCapture(0) 
- 3. Start an infinite loop (While(True)) to continuously captures frames from vedio 
- 
-while(True): 
+ 3. if (video.isOpened() == False):
 
-4. the function vidread() capture a frame from the vedio and returns two values : ret, a boolean indicating wheather a frame was successfully  capyured ,and frame ,the captured frame.
-   
-       ret, frame = vid.read() 
- 5. cv2.imshow () displays the captured frame in a window named 'frame'.
-          
-       cv2.imshow('frame', frame) 
-6. the loop waits for a key press with cv2.waitKey(1). if the pressed key is q  the loop breaks and the program ends
+    print("Error reading video file")
+    
+4.frame_width = int(video.get(3))
+
+frame_height = int(video.get(4))
+
+size = (frame_width, frame_height)
+
+5. result = cv2.VideoWriter('an.avi', cv2.VideoWriter_fourcc(*'MJPG'), 10, size
+
+Here, a VideoWriter object named result is created. It specifies the output file name ('M.avi'), the FourCC codec (MJPG), the frames per second (10), and the size of the frames.
+
+6.while(True):
+    ret, frame = video.read().
+    
+    This loop continuously reads frames from the webcam capture until the loop is manually broken. Each frame is stored in the frame variable.
        
-      if cv2.waitKey(1) & 0xFF == ord('q'):
+ 7. if ret == True:
+  
+    result.write(frame)
+    
+    cv2.imshow('Frame', frame)
+    
+    if cv2.waitKey(1) & 0xFF == ord('s'):
+    break
 
-7.vid.release{}releases the video capture object
+    Within the loop, each frame is written to the output file using the write() method of the VideoWriter object. The frame is also displayed in a window named 'Frame' using imshow(). If the 's' key is pressed, the loop breaks, stopping the recording process
+
+
+8.vid.release{}releases the video capture object
 
 vid.release{}
 
 cv2.destroy all windows
+
+9.print("The video was successfully saved")
+
 
 
 ## output:
