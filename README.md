@@ -246,7 +246,7 @@ cv2.destroy all windows
 
 ## output:
 
-[Screencast from 08-05-24 03:03:34 PM IST.webm](https://github.com/ankithamukka/honey/assets/169052286/c5d1c4f0-380a-491c-a95e-4320d01f863e)
+https://github.com/ankithamukka/honey/assets/169052286/5a660af3-a135-4e25-ace0-77d5f7b3ab3b
   
 
   
